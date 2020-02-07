@@ -1,0 +1,24 @@
+# Mackenna Semeyn
+# Computational Biology Spring 2020
+# Assignment 3 - BLAST
+# Due date: 2/7/2020
+# main.py
+
+from HW.semeyn_assignment_3.input import input_validation
+from HW.semeyn_assignment_3.blast import *
+
+
+def main():
+    val = input_validation()  # call to verify input
+
+    # run function based on type of input in f1
+    if val == 1:
+        refseq_blastn()
+    elif val == 2:
+        fasta_blastn()
+    else:
+        return
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,11 @@
+Assignment 3 - BLAST
+
+This program takes input from the command line.
+f1 is in the form of a comma separated list of either ref-seq ids or fasta files. The fasta formatted files must end with the extension '.fasta'.
+f2 is the taxid, referencing humans (9606), e-coli (562), or the wuhan viral genome 92697049).
+The e value parameter is optional, a default value of 10 is assigned if there is no entry. The entry must be a numeric value.
+The output file name must be a valid file name with no other files in that directory sharing a name.
+
+main.py imports functions from input.py and blast.py.
+input.py imports functions from the sys module.
+blast.py imports functions from the subprocess and sys modules. 
