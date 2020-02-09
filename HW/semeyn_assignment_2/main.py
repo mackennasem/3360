@@ -4,7 +4,7 @@
 # main.py
 
 import sys
-from semeyn_assignment_2.ensembl import get_sequence
+from HW.semeyn_assignment_2.ensembl_functions.ensembl import get_sequence
 
 
 def main():

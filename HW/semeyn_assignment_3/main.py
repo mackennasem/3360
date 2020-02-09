@@ -4,8 +4,8 @@
 # Due date: 2/7/2020
 # main.py
 
-from HW.semeyn_assignment_3.input import input_validation
-from HW.semeyn_assignment_3.blast import *
+from HW.semeyn_assignment_3.validate.input import input_validation
+from HW.semeyn_assignment_3.blast_functions.blast import refseq_blastn, fasta_blastn
 
 
 def main():
