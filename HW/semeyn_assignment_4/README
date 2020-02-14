@@ -1,0 +1,8 @@
+Assignment 4 - Turnpike Algorithm
+
+This program takes a multiset as a command line argument in the form of [element,element,element,etc.].
+
+main.py imports from the modules sys and turnpike_functions (user-made module)
+partial_digest.py imports from sys
+
+The file partial_digest.py contains the functions to execute the Turnpike algorithm, split into the functions partial_digest, place, and distance. They follow the algorithm presented in class. 
