@@ -23,62 +23,69 @@ def place(multiset, resultset):
     if not multiset:
         print(sorted(resultset))
         print("Size: ", len(resultset))
-        sys.exit()
+        return
     # set y equal to the maximum element in the multiset
     y = max(multiset)
-    # print("y = ", y)
+    print("y = ", y)
     # remove y from the multiset
     # multiset.remove(y)
     # find distances from current y to values in resultset
     dx = distance(y, resultset)
-    # print("dx = ", dx)
-    # print("multiset = ", multiset)
+    print("dx = ", dx)
+    print("multiset = ", multiset)
     # check if dx is contained inside multiset
     if set(dx).issubset(set(multiset)):
         # add y to result set
         resultset.append(y)
-        # print("resultset = ", resultset)
+        print("resultset = ", resultset)
         # remove lengths in dx from multiset
         for elem in dx:
-            # print("removing ", elem)
+            print("removing ", elem)
             multiset.remove(elem)
         # call place function on updated sets
         place(multiset, resultset)
-        # print("multiset = ", multiset)
-        # print("resultset = ", resultset)
+        print("multiset = ", multiset)
+        print("resultset = ", resultset)
         # remove y from result set
         resultset.remove(y)
-        # print("removing ", y, " from resultset")
+        print("removing ", y, " from resultset")
         # add lengths in dx to multiset
         for elem in dx:
             multiset.append(elem)
-            # print("appending ", elem)
+            print("appending ", elem)
     # find distances from width - y
     ndx = distance(max(resultset) - y, resultset)
-    # print("ndx = ", ndx)
+    print("ndx = ", ndx)
     # check if ndx is contained inside the multiset
     if set(ndx).issubset(set(multiset)):
         # add width - y to resultset
         resultset.append(max(resultset) - y)
         # remove lengths in ndx from multiset
         for elem in ndx:
-            # print("removing ", elem)
+            print("removing ", elem)
             multiset.remove(elem)
         # call place function on updated sets
         place(multiset, resultset)
-        # print("multiset = ", multiset)
-        # print("resultset = ", resultset)
+        print("multiset = ", multiset)
+        print("resultset = ", resultset)
         # remove width - y from the result set
         resultset.remove(max(resultset) - y)
         # add lengths in ndx to multiset
         for elem in ndx:
             multiset.append(elem)
-            # print("appending ", elem)
+            print("appending ", elem)
 
 
 def distance(y, resultset):
     dx = []
     for element in resultset:
         dx.append(abs(y - element))
-        # print(y, " - ", element, " = ", abs(y - element))
+        print(y, " - ", element, " = ", abs(y - element))
     return dx
+
+
+def place2(multiset, resultset):
+    if not multiset:
+        print(sorted(resultset))
+        print("Size: ", len(resultset))
+        return
