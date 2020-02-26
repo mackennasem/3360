@@ -1,0 +1,14 @@
+Assignment 6 - Global Alignment
+
+This program takes 5 command-line arguments.
+The first argument is the name of the first DNA file in fasta format.
+The second argument is the name of the second DNA file in fasta format.
+The third argument is the gap penalty.
+The fourth argument is the score of an aligned match.
+The fifth argument is the score of an aligned mismatch.
+
+The main.py file uses the import sys, and imports the function fasta from fasta.py and imports nw from needleman_wunsch.py.
+
+The fasta.py file uses the imports sys and re. The search function from re is used to search the DNA sequence to ensure the only bases are A, G, T, and C.
+
+The needleman_wunsch.py uses the import sys. It defines the functions nw, which executes the Needleman-Wunsch algorithm, the match function that compares bases to each other and determines if there is an alignment or mismatch, and the traceback function determines the alignment between the two sequences.
