@@ -1,0 +1,17 @@
+Assignment 7 - Global, Semi-Global, Local Alignment
+
+This program takes 6 command-line arguments.
+The first argument is the name of the first DNA file in fasta format.
+The second argument is the name of the second DNA file in fasta format.
+The third argument is the gap penalty.
+The fourth argument is the score of an aligned match.
+The fifth argument is the score of an aligned mismatch.
+The sixth argument is the type of alignment: global, semi-global, or local.
+
+The main.py imports sys, fasta, global_a, semi_global, and local modules for their functions.
+
+The global_a.py imports the module sys and uses the Needleman-Wunsch algorithm to implement global alignment.
+
+The semi_global.py imports sys and the match function from global_a and aligns the sequences using a zero boundary and linear gap penalty.
+
+The local.py imports match from global_a and traceback from semi_global and uses the Smith-Waterman algorithm to find the local alignment.
