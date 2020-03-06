@@ -1,0 +1,18 @@
+Assignment 8 - Affine Gap Penalty
+
+This program takes 6 command-line arguments.
+The first argument is the name of the first DNA file in fasta format.
+The second argument is the name of the second DNA file in fasta format.
+The third argument is the penalty for the existence of a gap.
+The fourth argument is the penalty for the extension of a gap.
+The fifth argument is the score of an aligned match.
+The sixth argument is the score of an aligned mismatch.
+
+The main.py imports sys, fasta, and affine  for their functions.
+
+The fasta.py imports the module sys and parses the input file to collect the DNA sequence, checking to make sure the only bases in the sequence are AGTC.
+
+The affine.py imports sys and aligns the sequences using an affine gap penalty.
+
+The alignment score and main matrix are printed as output.
+
