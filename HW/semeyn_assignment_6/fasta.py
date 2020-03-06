@@ -5,7 +5,6 @@
 # Due date: 2/26/2020
 
 import sys
-import re
 
 
 def fasta():
