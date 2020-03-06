@@ -31,7 +31,6 @@ def fasta():
 
 
 def dna_check(sequence):
-    seq = []
     # for each base in the sequence, check to make sure it only contains A, C, G, and T
     for base in sequence:
         if not base.lower() == 'a' and not base.lower() == 'g' and not base.lower() == 'c' and not base.lower() == 't':

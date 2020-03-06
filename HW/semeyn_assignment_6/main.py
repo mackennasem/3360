@@ -5,8 +5,8 @@
 # Due date: 2/26/2020
 
 import sys
-from HW.semeyn_assignment_6.fasta import fasta
-from HW.semeyn_assignment_6.needleman_wunsch import nw
+from fasta import fasta
+from needleman_wunsch import nw
 
 
 def main():
