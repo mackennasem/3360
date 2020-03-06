@@ -5,7 +5,6 @@
 # Due date: 2/27/2020
 
 import sys
-import re
 
 
 def fasta():
@@ -14,11 +13,8 @@ def fasta():
     if f:                                                           # if file is open
         for line in f:
             if not line.startswith('>'):                            # skip information line in fasta file
-                x = re.search(r"[^atcgACTG]", line)                 # search for any character that is not AGCT
-                if not x:
-                    seq.append(line)                                # add sequence to list
-                else:
-                    print("Error: Not a DNA sequence.")             # print error message
+                dna_check(line)                                     # check if sequence is only AGTC
+                seq.append(line)
     else:
         print("Error: ", sys.argv[1], " cannot be opened.")         # print error message
     f.close()                                                       # close first fasta file
@@ -26,12 +22,18 @@ def fasta():
     if f:                                                           # if file is open
         for line in f:
             if not line.startswith('>'):                            # skip information line in fasta file
-                x = re.search(r"[^atcgACTG]", line)                 # search for any character that is not AGCT
-                if not x:
-                    seq.append(line)                                # add sequence to list
-                else:
-                    print("Error: Not a DNA sequence.")             # print error message
+                dna_check(line)                                     # check if sequence is only AGTC
+                seq.append(line)
     else:
         print("Error: ", sys.argv[2], " cannot be opened.")         # print error message
     f.close()                                                       # close second fasta file
     return seq                                                      # return two sequences in a list
+
+
+def dna_check(sequence):
+    seq = []
+    # for each base in the sequence, check to make sure it only contains A, C, G, and T
+    for base in sequence:
+        if not base.lower() == 'a' and not base.lower() == 'g' and not base.lower() == 'c' and not base.lower() == 't':
+            print("Error: Not a valid DNA sequence")
+            sys.exit(1)

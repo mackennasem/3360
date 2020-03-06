@@ -20,9 +20,9 @@ def main():
         if sys.argv[6] == "global":
             nw(seq[0], seq[1], int(sys.argv[3]))            # call Needleman-Wunsch algorithm
         elif sys.argv[6] == "semi-global":
-            semi(seq[0], seq[1], int(sys.argv[3]))
+            semi(seq[0], seq[1], int(sys.argv[3]))          # call Semi-Global algorithm
         elif sys.argv[6] == "local":
-            sw(seq[0], seq[1], int(sys.argv[3]))
+            sw(seq[0], seq[1], int(sys.argv[3]))            # call Smith-Waterman algorithm
         else:
             print("Error: Please choose 'global', 'semi-global', or 'local'")
     else:

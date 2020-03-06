@@ -39,7 +39,7 @@ def sw(s1, s2, g):
         row_num += 1                                                        # increment to next row
 
     print("Local Alignment Score:", matrix[i][j])                           # print alignment score
-    traceback(i, j, length, s1, s2, matrix, align1, align2)                 # call traceback function
+    traceback(i, j, s1, s2, matrix, align1, align2)                         # call traceback function
     print(''.join(align1))                                                  # print alignments
     print(''.join(align2))
     for row in matrix:                                                      # print matrix

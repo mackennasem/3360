@@ -29,7 +29,7 @@ def nw(s1, s2, g):
     length = max(len(s1), len(s2))                                              # get length of longer sequence
     align1 = []                                                                 # initialize alignment lists
     align2 = []
-    traceback(n, m, length, s1, s2, matrix, align1, align2)                     # call traceback function
+    traceback(n, m, s1, s2, matrix, align1, align2)                             # call traceback function
     print(''.join(align1))                                                      # print alignments
     print(''.join(align2))
     for row in matrix:                                                          # print matrix
@@ -43,23 +43,23 @@ def match(i, j):
         return int(sys.argv[5])                                                 # return mismatch score
 
 
-def traceback(i, j, length, s1, s2, matrix, align1, align2):
+def traceback(i, j, s1, s2, matrix, align1, align2):
+    aligning = True
     g = int(sys.argv[3])                                                        # get gap penalty score
-    if i == 0 and j == 0:                                                       # base case
-        length = 0
-    elif i > 0 and matrix[i][j] == matrix[i-1][j] + g:                          # if score came from top
-        traceback(i-1, j, length, s1, s2, matrix, align1, align2)               # call traceback on top
-        length += 1
-        align1.append(s1[i-1])                                                  # add base to first sequence
-        align2.append('-')                                                      # add gap to second sequence
-    # if score came from diagonal
-    elif i > 0 and j > 0 and matrix[i][j] == matrix[i-1][j-1] + match(s1[i-1], s2[j-1]):
-        traceback(i-1, j-1, length, s1, s2, matrix, align1, align2)             # call traceback on diagonal
-        length += 1
-        align1.append(s1[i-1])                                                  # add base to first sequence
-        align2.append(s2[j-1])                                                  # add base to second sequence
-    else:                                                                       # if score came from left
-        traceback(i, j-1, length, s1, s2, matrix, align1, align2)               # call traceback on left
-        length += 1
-        align1.append('-')                                                      # add gap to first sequence
-        align2.append(s2[j - 1])                                                # add base to second sequence
+    while aligning:
+        if i == 0 and j == 0:
+            aligning = False
+        elif i > 0 and matrix[i][j] == matrix[i - 1][j] + g:
+            align1.append(s1[i - 1])                                            # add base to first sequence
+            align2.append('-')                                                  # add gap to second sequence
+            i -= 1
+        # if score came from diagonal
+        elif i > 0 and j > 0 and matrix[i][j] == matrix[i - 1][j - 1] + match(s1[i - 1], s2[j - 1]):
+            align1.append(s1[i - 1])                                            # add base to first sequence
+            align2.append(s2[j - 1])                                            # add base to second sequence
+            i -= 1
+            j -= 1
+        else:
+            align1.append('-')                                                  # add gap to first sequence
+            align2.append(s2[j - 1])                                            # add base to second sequence
+            j -= 1
